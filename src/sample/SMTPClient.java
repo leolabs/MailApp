@@ -1,7 +1,6 @@
 package sample;
 
 import com.sun.org.apache.xml.internal.security.utils.Base64;
-import sample.messages.Message;
 
 import javax.security.auth.login.LoginException;
 import java.util.Date;
@@ -85,7 +84,11 @@ public class SMTPClient {
         client.send("Date: " + new Date().toString());
         client.send("Content-Type: " + (message.isHTML() ? "text/html" : "text/plain") + "; charset=UTF-8");
         client.send("");
-        client.send(message.getMessage());
+
+        for(String msg : message.getMessage().split("\n")) {
+            client.send(msg);
+        }
+
         trySend(".");
         trySend("QUIT");
     }

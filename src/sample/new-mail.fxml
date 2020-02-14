@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ComposeController">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="200.0">
+        <items>
+          <Button fx:id="btnSend" mnemonicParsing="false" onAction="#sendMail" text="Abschicken" />
+        </items>
+      </ToolBar>
+      <AnchorPane prefHeight="87.0" prefWidth="600.0" style="-fx-background-color: #efefef;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Empfänger:" />
+            <TextField fx:id="fieldReceipient" layoutX="96.0" layoutY="9.0" prefHeight="26.0" prefWidth="490.0" AnchorPane.leftAnchor="96.0" AnchorPane.rightAnchor="10.0" />
+            <TextField fx:id="fieldSubject" layoutX="96.0" layoutY="50.0" prefHeight="26.0" prefWidth="494.0" AnchorPane.leftAnchor="96.0" AnchorPane.rightAnchor="10.0" />
+            <Label layoutX="41.0" layoutY="55.0" text="Betreff:" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HTMLEditor fx:id="fieldEditor" layoutX="120.0" layoutY="37.0" prefHeight="200.0" prefWidth="506.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

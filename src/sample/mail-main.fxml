@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="200.0">
+        <items>
+          <Button fx:id="composeButton" mnemonicParsing="false" onAction="#composeMail" text="New E-Mail" />
+            <Button fx:id="receiveButton" mnemonicParsing="false" onAction="#fetchMail" text="Fetch E-Mails" />
+            <Button mnemonicParsing="false" onAction="#openSettings" text="Settings" />
+        </items>
+      </ToolBar>
+      <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="360.0" prefWidth="210.0">
+               <children>
+                  <ListView fx:id="mailList" layoutX="158.0" layoutY="-12.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <AnchorPane layoutY="2.0" prefHeight="100.0" prefWidth="496.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+                     <children>
+                        <ProgressIndicator fx:id="progressIndicator" layoutX="448.0" layoutY="27.0" progress="0.0" AnchorPane.rightAnchor="14.0" />
+                        <Label layoutX="28.0" layoutY="15.0" text="From:" textAlignment="RIGHT" />
+                        <Label layoutX="45.0" layoutY="42.0" text="To:" />
+                        <Label layoutX="14.0" layoutY="68.0" text="Subject:" />
+                        <Label fx:id="labelFrom" layoutX="75.0" layoutY="15.0" prefHeight="16.0" prefWidth="356.0" text="N/A" AnchorPane.leftAnchor="75.0" />
+                        <Label fx:id="labelTo" layoutX="75.0" layoutY="42.0" prefHeight="16.0" prefWidth="356.0" text="N/A" AnchorPane.leftAnchor="75.0" />
+                        <Label fx:id="labelSubject" layoutX="75.0" layoutY="68.0" prefHeight="16.0" prefWidth="356.0" text="N/A" AnchorPane.leftAnchor="75.0" />
+                     </children>
+                  </AnchorPane>
+                  <Accordion layoutX="129.0" layoutY="179.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+                    <panes>
+                      <TitledPane expanded="false" text="More headers">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ListView fx:id="headerList" layoutX="147.0" layoutY="3.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="-1.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane text="E-Mail">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <WebView fx:id="mailView" layoutX="139.0" layoutY="3.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="-1.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                    </panes>
+                  </Accordion>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</VBox>

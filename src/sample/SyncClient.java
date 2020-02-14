@@ -14,8 +14,7 @@ public class SyncClient extends Client {
     String lastSyncAnswer = "";
 
     boolean awaitingMulti = false;
-    ArrayList<String> lastMultiSyncAnswer = new ArrayList<String>();
-    boolean isOpen = false;
+    ArrayList<String> lastMultiSyncAnswer = new ArrayList<>();
 
     /**
      * Der Client ist mit Ein- und Ausgabestreams initialisiert.<br>
@@ -82,13 +81,5 @@ public class SyncClient extends Client {
 
         lastSyncAnswer = pMessage;
         lastMultiSyncAnswer.add(pMessage);
-
-        if(!awaitingSingle && !awaitingMulti) {
-            if(pMessage.startsWith("-ERR") && pMessage.toLowerCase().contains("disconnect")){
-                isOpen = false;
-                closeConnection();
-            }
-        }
-
     }
 }

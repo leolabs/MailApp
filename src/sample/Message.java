@@ -1,10 +1,10 @@
-package sample.messages;
+package sample;
 
 import java.util.HashMap;
 
 public class Message {
-    private HashMap<String, String> headers = new HashMap<String, String>();
-    private String message, subject, from, to = "";
+    private HashMap<String, String> headers = new HashMap<>();
+    private String message = "", subject = "", from = "", to = "";
     private int id;
     private int size = 0;
     private boolean isHTML = true;
@@ -77,11 +77,10 @@ public class Message {
 
     @Override
     public String toString() {
-        return "Message{" +
-                "to='" + to + '\'' +
-                ", from='" + from + '\'' +
-                ", subject='" + subject + '\'' +
-                ", message='" + message + '\'' +
-                '}';
+        if(from.equals("")){
+            return id + " (" + size/1024 + " KB)";
+        }else{
+            return from + " - " + subject;
+        }
     }
 }
